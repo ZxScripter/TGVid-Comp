@@ -22,16 +22,16 @@ async def Handle_StartMsg(bot:Client, msg:Message):
     if msg.chat.type == enums.ChatType.SUPERGROUP and not await db.is_user_exist(msg.from_user.id):
         botusername = await bot.get_me()
         btn = [
-            [InlineKeyboardButton(text='⚡ BOT PM', url=f'https://t.me/{botusername.username}')],
-            [InlineKeyboardButton(text='💻 Dᴇᴠᴇʟᴏᴘᴇʀ', url='https://t.me/Snowball_Official')]
+            [InlineKeyboardButton(text='ʙᴏᴛ ᴘᴍ', url=f'https://t.me/{botusername.username}')],
+            [InlineKeyboardButton(text='ᴏᴡɴᴇʀ', url='https://t.me/Sensei_Rimuru')]
         ]
 
         await Snowdev.edit(text=Txt.GROUP_START_MSG.format(msg.from_user.mention), reply_markup=InlineKeyboardMarkup(btn))
     
     else:
         btn = [
-            [InlineKeyboardButton(text='❗ Hᴇʟᴘ', callback_data='help'), InlineKeyboardButton(text='🌨️ Aʙᴏᴜᴛ', callback_data='about')],
-            [InlineKeyboardButton(text='📢 Uᴘᴅᴀᴛᴇs', url='https://t.me/AIORFT'), InlineKeyboardButton(text='💻 Dᴇᴠᴇʟᴏᴘᴇʀ', url='https://t.me/Snowball_Official')]
+            [InlineKeyboardButton(text='ʜᴇʟᴘ', callback_data='help'), InlineKeyboardButton(text='ᴀʙᴏᴜᴛ', callback_data='about')],
+            [InlineKeyboardButton(text='ᴜᴘᴅᴀᴛᴇs', url='https://t.me/Ani_Bots_Updates'), InlineKeyboardButton(text='ᴏᴡɴᴇʀ', url='https://t.me/Sensei_Rimuri')]
         ]
 
         if Config.START_PIC:
@@ -51,8 +51,8 @@ async def Files_Option(bot:Client, message:Message):
     if message.chat.type == enums.ChatType.SUPERGROUP and not await db.is_user_exist(message.from_user.id):
         botusername = await bot.get_me()
         btn = [
-            [InlineKeyboardButton(text='⚡ BOT PM', url=f'https://t.me/{botusername.username}')],
-            [InlineKeyboardButton(text='💻 Dᴇᴠᴇʟᴏᴘᴇʀ', url='https://t.me/Snowball_Official')]
+            [InlineKeyboardButton(text='ʙᴏᴛ ᴘᴍ', url=f'https://t.me/{botusername.username}')],
+            [InlineKeyboardButton(text='ᴏᴡɴᴇʀ', url='https://t.me/Sensei_Rimuru')]
         ]
 
         return await SnowDev.edit(text=Txt.GROUP_START_MSG.format(message.from_user.mention), reply_markup=InlineKeyboardMarkup(btn))
@@ -63,21 +63,21 @@ async def Files_Option(bot:Client, message:Message):
 
 
     try:
-        text = f"""**__What do you want me to do with this file.?__**\n\n**File Name** :- `{filename}`\n\n**File Size** :- `{filesize}`"""
+        text = f"""**ᴡʜᴀᴛ ᴅᴏ ʏᴏᴜ ᴡᴀɴᴛ ᴍᴇ ᴛᴏ ᴅᴏ ᴡɪᴛʜ ᴛʜɪs ғɪʟᴇ.?**\n\n**ғɪʟᴇ ɴᴀᴍᴇ** :- `{filename}`\n\n**ғɪʟᴇ sɪᴢᴇ** :- `{filesize}`"""
 
-        buttons = [[InlineKeyboardButton("Rᴇɴᴀᴍᴇ 📝", callback_data=f"rename-{message.from_user.id}")],
-                   [InlineKeyboardButton("Cᴏᴍᴘʀᴇss 🗜️", callback_data=f"compress-{message.from_user.id}")]]
+        buttons = [[InlineKeyboardButton("ʀᴇɴᴀᴍᴇ 📝", callback_data=f"rename-{message.from_user.id}")],
+                   [InlineKeyboardButton("ᴄᴏᴍᴘʀᴇss ⚡", callback_data=f"compress-{message.from_user.id}")]]
         await SnowDev.edit(text=text, reply_markup=InlineKeyboardMarkup(buttons))
         
     except FloodWait as e:
         
-        floodmsg = await message.reply_text(f"**😥 Pʟᴇᴀsᴇ Wᴀɪᴛ ᴅᴏɴ'ᴛ ᴅᴏ ғʟᴏᴏᴅɪɴɢ ᴡᴀɪᴛ ғᴏʀ {e.value} Sᴇᴄᴄᴏɴᴅs**", reply_to_message_id=message.id)
+        floodmsg = await message.reply_text(f"**😥 ᴘʟᴇᴀsᴇ ᴡᴀɪᴛ ᴅᴏɴ'ᴛ sᴘᴀᴍ ғᴏʀ ᴀɴᴏᴛʜᴇʀ {e.value} Sᴇᴄᴄᴏɴᴅs**", reply_to_message_id=message.id)
         await sleep(e.value)
         await floodmsg.delete()
 
-        text = f"""**__What do you want me to do with this file.?__**\n\n**File Name** :- `{filename}`\n\n**File Size** :- `{filesize}`"""
-        buttons = [[InlineKeyboardButton("Rᴇɴᴀᴍᴇ 📝", callback_data=f"rename-{message.from_user.id}")],
-                   [InlineKeyboardButton("Cᴏᴍᴘʀᴇss 🗜️", callback_data=f"compress-{message.from_user.id}")]]
+        text = f"""**ᴡʜᴀᴛ ᴅᴏ ʏᴏᴜ ᴡᴀɴᴛ ᴍᴇ ᴛᴏ ᴅᴏ ᴡɪᴛʜ ᴛʜɪs ғɪʟᴇ.?**\n\n**ғɪʟᴇ ɴᴀᴍᴇ** :- `{filename}`\n\n**ғɪʟᴇ sɪᴢᴇ** :- `{filesize}`"""
+        buttons = [[InlineKeyboardButton("ʀᴇɴᴀᴍᴇ 📝", callback_data=f"rename-{message.from_user.id}")],
+                   [InlineKeyboardButton("ᴄᴏᴍᴘʀᴇss ⚡", callback_data=f"compress-{message.from_user.id}")]]
         await SnowDev.edit(text=text, reply_markup=InlineKeyboardMarkup(buttons))
 
     except Exception as e:
@@ -93,6 +93,6 @@ async def cancel_process(bot:Client, message:Message):
         shutil.rmtree(f"Metadata/{message.from_user.id}")
         shutil.rmtree(f"Screenshot_Generation/{message.from_user.id}")
         
-        return await message.reply_text(text="**Canceled All On Going Processes ✅**")
+        return await message.reply_text(text="**ᴄᴀɴᴄᴇʟʟᴇᴅ ᴀʟʟ ᴏɴɢᴏɪɴɢ ᴘʀᴏᴄᴇss ✅**")
     except BaseException:
         pass
