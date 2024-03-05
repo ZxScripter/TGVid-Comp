@@ -47,7 +47,7 @@ async def progress_for_pyrogram(current, total, ud_type, message, start):
         try:
             await message.edit(
                 text=f"{ud_type}\n\n{tmp}",               
-                reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("✖️ 𝙲𝙰𝙽𝙲𝙴𝙻 ✖️", callback_data=f"close-{message.from_user.id}")]])                                               
+                reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("❌ 𝙲𝙰𝙽𝙲𝙴𝙻 ❌", callback_data=f"close-{message.from_user.id}")]])                                               
             )
         except:
             pass
@@ -149,7 +149,7 @@ async def Compress_Stats(e, userid):
         ot = humanbytes(int((Path(outp).stat().st_size)))
         ov = humanbytes(int(Path(inp).stat().st_size))
         processing_file_name = inp.replace(f"ffmpeg/{userid}/", "").replace(f"_", " ")
-        ans = f"Processing Media: {processing_file_name}\n\nDownloaded: {ov}\n\nCompressed: {ot}"
+        ans = f"Processing Media: {processing_file_name}\n\nᴅᴏᴡɴʟᴏᴀᴅᴇᴅ: {ov}\n\nᴄᴏᴍᴘʀᴇssᴇᴅ: {ot}"
         await e.answer(ans, cache_time=0, show_alert=True)
     except Exception as er:
         print(er)
@@ -183,11 +183,11 @@ async def skip(e, userid):
 
 async def CompressVideo(bot, query, ffmpegcode, c_thumb):
     UID = query.from_user.id
-    ms = await query.message.edit('Pʟᴇᴀsᴇ Wᴀɪᴛ...\n\n**Fᴇᴛᴄʜɪɴɢ Qᴜᴇᴜᴇ 👥**')
+    ms = await query.message.edit('**•ғᴇᴛᴄʜɪɴɢ ǫᴜᴇᴜᴇ**')
     
 
     if os.path.isdir(f'ffmpeg/{UID}') and os.path.isdir(f'encode/{UID}'):
-        return await ms.edit("**⚠️ Yᴏᴜ ᴄᴀɴ ᴄᴏᴍᴘʀᴇss ᴏɴʟʏ ᴏɴᴇ ғɪʟᴇ ᴀᴛ ᴀ ᴛɪᴍᴇ\n\nAs ᴛʜɪs ʜᴇʟᴘs ʀᴇᴅᴜᴄᴇ sᴇʀᴠᴇʀ ʟᴏᴀᴅ.**")
+        return await ms.edit("**❗ Yᴏᴜ ᴄᴀɴ ᴄᴏᴍᴘʀᴇss ᴏɴʟʏ ᴏɴᴇ ғɪʟᴇ ᴀᴛ ᴀ ᴛɪᴍᴇ\n\nAs ᴛʜɪs ʜᴇʟᴘs ʀᴇᴅᴜᴄᴇ sᴇʀᴠᴇʀ ʟᴏᴀᴅ.**")
 
     try:
         media = query.message.reply_to_message
@@ -199,7 +199,7 @@ async def CompressVideo(bot, query, ffmpegcode, c_thumb):
         Output_Path = f"encode/{UID}/{filename}"
         
         
-        await ms.edit('⚠️__**Please wait...**__\n**Tʀyɪɴɢ Tᴏ Dᴏᴡɴʟᴏᴀᴅɪɴɢ....**')
+        await ms.edit('**ᴛʀʏɪɴɢ ᴛᴏ ᴅᴏᴡɴʟᴏᴀᴅ....**')
         s = dt.now()
         try:
             if not os.path.isdir(Download_DIR) and not os.path.isdir(Output_DIR):
@@ -210,7 +210,7 @@ async def CompressVideo(bot, query, ffmpegcode, c_thumb):
                     message=file,
                     file_name=File_Path,
                     progress=progress_for_pyrogram,
-                    progress_args=("\n⚠️__**Please wait...**__\n\n☃️ **Dᴏᴡɴʟᴏᴀᴅ Sᴛᴀʀᴛᴇᴅ....**", ms, time.time())
+                    progress_args=("\n**ᴅᴏᴡɴʟᴏᴀᴅɪɴɢ....**", ms, time.time())
                 )
         except Exception as e:
             return await ms.edit(str(e))
@@ -219,10 +219,10 @@ async def CompressVideo(bot, query, ffmpegcode, c_thumb):
         dtime = ts(int((es - s).seconds) * 1000)
 
         await ms.edit(
-            "**🗜 Compressing...**",
+            "**⚡ ᴄᴏᴍᴘʀᴇssɪɴɢ...**",
             reply_markup=InlineKeyboardMarkup([
-                [InlineKeyboardButton(text='Sᴛᴀᴛs', callback_data=f'stats-{UID}')],
-                [InlineKeyboardButton(text='Cᴀɴᴄᴇʟ', callback_data=f'skip-{UID}')]
+                [InlineKeyboardButton(text='ᴘʀᴏɢʀᴇss', callback_data=f'stats-{UID}')],
+                [InlineKeyboardButton(text='ᴄᴀɴᴄᴇʟ', callback_data=f'skip-{UID}')]
             ])
         )
         
@@ -264,18 +264,18 @@ async def CompressVideo(bot, query, ffmpegcode, c_thumb):
         x = dtime
         xx = ts(int((ees - es).seconds) * 1000)
         xxx = ts(int((eees - ees).seconds) * 1000)
-        await ms.edit("⚠️__**Please wait...**__\n**Tʀyɪɴɢ Tᴏ Uᴩʟᴏᴀᴅɪɴɢ....**")
+        await ms.edit("**ᴛʀʏɪɴɢ ᴛᴏ ᴜᴘʟᴏᴀᴅ....**")
         await bot.send_document(
                 UID,
                 document=Output_Path,
                 thumb=ph_path,
                 caption=Config.caption.format(filename, humanbytes(org), humanbytes(com) , per, x, xx, xxx),
                 progress=progress_for_pyrogram,
-                progress_args=("⚠️__**Please wait...**__\n🌨️ **Uᴩʟᴏᴅ Sᴛᴀʀᴛᴇᴅ....**", ms, time.time()))
+                progress_args=("**ᴜᴘʟᴏᴀᴅɪɴɢ....**", ms, time.time()))
         
         if query.message.chat.type == enums.ChatType.SUPERGROUP:
             botusername = await bot.get_me()
-            await ms.edit(f"Hey {query.from_user.mention},\n\nI Have Send Compressed File To Your Pm", reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="Bᴏᴛ Pᴍ", url=f'https://t.me/{botusername.username}')]]))
+            await ms.edit(f"Hey {query.from_user.mention},\n\nᴄʜᴇᴄᴋ ᴘᴍ ғɪʟᴇs ʏᴏᴜʀ ғɪʟᴇs ᴀʀʀɪᴠᴇᴅ", reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="Bᴏᴛ Pᴍ", url=f'https://t.me/{botusername.username}')]]))
             
         else:
             await ms.delete()
