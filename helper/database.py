@@ -17,7 +17,7 @@ class Database:
             caption=None,
             thumbnail=None,
             ffmpegcode=None,
-            metadata=None,
+            metadata="""-map 0 -c:s copy -c:a copy -c:v copy -metadata title="Encoded By Anime Sensei" -metadata author="Anime Sensei" -metadata:s:s title="Anime Sensei" -metadata:s:a title="Anime Sensei" -metadata:s:v title="Anime Sensei" """,
             ban_status=dict(
                 is_banned=False,
                 ban_duration=0,
@@ -113,3 +113,4 @@ class Database:
 
 
 db = Database(Config.DB_URL, Config.DB_NAME)
+                                   
