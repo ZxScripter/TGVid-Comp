@@ -22,7 +22,7 @@ async def rename(bot, update):
 
     date = update.message.date
     await update.message.delete()
-    await update.message.reply_text("__𝙿𝚕𝚎𝚊𝚜𝚎 𝙴𝚗𝚝𝚎𝚛 𝙽𝚎𝚠 𝙵𝚒𝚕𝚎𝙽𝚊𝚖𝚎...__", reply_to_message_id=update.message.reply_to_message.id, reply_markup=ForceReply(True))
+    await update.message.reply_text("**ᴘʟᴇᴀsᴇ ᴇɴᴛᴇʀ ɴᴇᴡ ғɪʟᴇ ɴᴀᴍᴇ**...", reply_to_message_id=update.message.reply_to_message.id, reply_markup=ForceReply(True))
 
 @Client.on_message((filters.private | filters.group) & filters.reply)
 async def refunc(client, message):
@@ -45,12 +45,12 @@ async def refunc(client, message):
             "📁 Dᴏᴄᴜᴍᴇɴᴛ", callback_data="upload_document")]]
         if file.media in [MessageMediaType.VIDEO, MessageMediaType.DOCUMENT]:
             button.append([InlineKeyboardButton(
-                "🎥 Vɪᴅᴇᴏ", callback_data="upload_video")])
+                "🎥 ᴠɪᴅᴇᴏ", callback_data="upload_video")])
         elif file.media == MessageMediaType.AUDIO:
             button.append([InlineKeyboardButton(
-                "🎵 Aᴜᴅɪᴏ", callback_data="upload_audio")])
+                "🎵 ᴀᴜᴅɪᴏ", callback_data="upload_audio")])
         await message.reply_text(
-            text=f"<b>Sᴇʟᴇᴄᴛ Tʜᴇ Oᴜᴛᴩᴜᴛ Fɪʟᴇ Tyᴩᴇ</b>\n<b>• Fɪʟᴇ Nᴀᴍᴇ :-</b><code>{new_name}</code>",
+            text=f"<b>sᴇʟᴇᴄᴛ ᴛʜᴇ ᴘᴜᴛ ғɪʟᴇ ᴛʏᴘᴇ</b>\n<b>‣ ғɪʟᴇ ɴᴀᴍᴇ :-</b><code>{new_name}</code>",
             reply_to_message_id=file.id,
             reply_markup=InlineKeyboardMarkup(button)
         )
@@ -69,9 +69,9 @@ async def doc(bot, update):
     file = update.message.reply_to_message
     print(file_path)
 
-    ms = await update.message.edit("⚠️__**Please wait...**__\n**Tʀyɪɴɢ Tᴏ Dᴏᴡɴʟᴏᴀᴅɪɴɢ....**")
+    ms = await update.message.edit("**ᴛʀʏɪɴɢ ᴛᴏ ᴅᴏᴡɴʟᴏᴀᴅ....**")
     try:
-        dl = await bot.download_media(message=file, file_name=file_path, progress=progress_for_pyrogram, progress_args=("\n⚠️__**Please wait...**__\n\n☃️ **Dᴏᴡɴʟᴏᴀᴅ Sᴛᴀʀᴛᴇᴅ....**", ms, time.time()))
+        dl = await bot.download_media(message=file, file_name=file_path, progress=progress_for_pyrogram, progress_args=("\n**ᴅᴏᴡɴʟᴏᴀᴅɪɴɢ....**", ms, time.time()))
     except Exception as e:
         return await ms.edit(e)
 
@@ -93,7 +93,7 @@ async def doc(bot, update):
             caption = c_caption.format(filename=new_filename, filesize=humanbytes(
                 media.file_size), duration=convert(duration))
         except Exception as e:
-            return await ms.edit(text=f"Yᴏᴜʀ Cᴀᴩᴛɪᴏɴ Eʀʀᴏʀ Exᴄᴇᴩᴛ Kᴇyᴡᴏʀᴅ Aʀɢᴜᴍᴇɴᴛ ●> ({e})")
+            return await ms.edit(text=f"Your Caption Error> ({e})")
     else:
         caption = f"**{new_filename}**"
 
@@ -107,12 +107,12 @@ async def doc(bot, update):
         img.resize((320, 320))
         img.save(ph_path, "JPEG")
 
-    await ms.edit("__**Pʟᴇᴀsᴇ Wᴀɪᴛ...**__\n**Fᴇᴛᴄʜɪɴɢ Mᴇᴛᴀᴅᴀᴛᴀ....**")
+    await ms.edit("**♻️ ғᴇᴛᴄʜɪɴɢ ᴍᴇᴛᴀᴅᴀᴛᴀ....**")
     metadat = await db.get_metadata(user_id)
     
     if metadat:
         
-        await ms.edit("I Fᴏᴜɴᴅ Yᴏᴜʀ Mᴇᴛᴀᴅᴀᴛᴀ\n\n__**Pʟᴇᴀsᴇ Wᴀɪᴛ...**__\n**Aᴅᴅɪɴɢ Mᴇᴛᴀᴅᴀᴛᴀ Tᴏ Fɪʟᴇ....**")
+        await ms.edit("**🥹 ᴀᴅᴅɪɴɢ ᴍᴇᴛᴀᴅᴀᴛᴀ ᴛᴏ ғɪʟᴇ....**")
         cmd = f"""ffmpeg -i "{dl}" {metadat} "{metadata_path}" """
 
         process = await asyncio.create_subprocess_shell(
@@ -129,7 +129,7 @@ async def doc(bot, update):
         except BaseException:
             pass
 
-    await ms.edit("Mᴇᴛᴀᴅᴀᴛᴀ ᴀᴅᴅᴇᴅ ᴛᴏ ᴛʜᴇ ғɪʟᴇ sᴜᴄᴄᴇssғᴜʟʟʏ ✅\n\n⚠️__**Please wait...**__\n**Tʀyɪɴɢ Tᴏ Uᴩʟᴏᴀᴅɪɴɢ....**")
+    await ms.edit("ᴍᴇᴛᴀᴅᴀᴛᴀ ᴀᴅᴅᴇᴅ ᴛᴏ ᴛʜᴇ ғɪʟᴇ sᴜᴄᴄᴇssғᴜʟʟʏ ✅\n**ᴛʀʏɪɴɢ ᴛᴏ ᴜᴘʟᴏᴀᴅ....**")
     type = update.data.split("_")[1]
     try:
         if type == "document":
@@ -139,7 +139,7 @@ async def doc(bot, update):
                 thumb=ph_path,
                 caption=caption,
                 progress=progress_for_pyrogram,
-                progress_args=("⚠️__**Please wait...**__\n🌨️ **Uᴩʟᴏᴅ Sᴛᴀʀᴛᴇᴅ....**", ms, time.time()))
+                progress_args=("**ᴜᴘʟᴏᴀᴅɪɴɢ....**", ms, time.time()))
         elif type == "video":
             await bot.send_video(
                 update.from_user.id,
@@ -148,7 +148,7 @@ async def doc(bot, update):
                 thumb=ph_path,
                 duration=duration,
                 progress=progress_for_pyrogram,
-                progress_args=("⚠️__**Please wait...**__\n🌨️ **Uᴩʟᴏᴅ Sᴛᴀʀᴛᴇᴅ....**", ms, time.time()))
+                progress_args=("**ᴜᴘʟᴏᴀᴅɪɴɢ....**", ms, time.time()))
         elif type == "audio":
             await bot.send_audio(
                 update.from_user.id,
@@ -157,7 +157,7 @@ async def doc(bot, update):
                 thumb=ph_path,
                 duration=duration,
                 progress=progress_for_pyrogram,
-                progress_args=("⚠️__**Please wait...**__\n🌨️ **Uᴩʟᴏᴅ Sᴛᴀʀᴛᴇᴅ....**", ms, time.time()))
+                progress_args=("**ᴜᴘʟᴏᴀᴅɪɴɢ....**", ms, time.time()))
     except Exception as e:
         os.remove(file_path)
         if ph_path:
@@ -174,6 +174,6 @@ async def doc(bot, update):
 
     if update.message.chat.type == enums.ChatType.SUPERGROUP:
         botusername = await bot.get_me()
-        await ms.edit(f"Hey {update.from_user.mention},\n\nI Have Send Renamed File To Your Pm", reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="Bᴏᴛ Pᴍ", url=f'https://t.me/{botusername.username}')]]))
+        await ms.edit(f"Hey {update.from_user.mention},\n\nᴄʜᴇᴄᴋ ᴘᴍ ғɪʟᴇs ʏᴏᴜʀ ғɪʟᴇs ᴀʀʀɪᴠᴇᴅ", reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="Bᴏᴛ Pᴍ", url=f'https://t.me/{botusername.username}')]]))
     else:
         await ms.delete()
