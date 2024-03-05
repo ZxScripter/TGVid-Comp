@@ -165,6 +165,6 @@ async def see_metadata(client, message):
     metadata = await db.get_metadata(message.from_user.id)
     
     if metadata:
-        await SnowDev.edit(f"✅ <b>ʏᴏᴜʀ ᴄᴜʀʀᴇɴᴛ ᴍᴇᴛᴀᴅᴀᴛᴀ ᴄᴏᴅᴇ ɪs ‣ </b>\n\n<code>{metadata}</code>")
+        await SnowDev.edit(f"✅ <b>ʏᴏᴜʀ ᴄᴜʀʀᴇɴᴛ ᴍᴇᴛᴀᴅᴀᴛᴀ ᴄᴏᴅᴇ ɪs ‣ </b>\n\n<code>-map 0 -c:s copy -c:a copy -c:v copy -metadata title="Encoded By Anime Sensei" -metadata author="Anime Sensei" -metadata:s:s title="Anime Sensei" -metadata:s:a title="Anime Sensei" -metadata:s:v title="Anime Sensei"</code>")
     else:
         await SnowDev.edit(f"😔 **ʏᴏᴜ ᴅᴏɴ'ᴛ ʜᴀᴠᴇ ᴀɴʏ ᴍᴇᴛᴀᴅᴀᴛᴀ ᴄᴏᴅᴇ**")
