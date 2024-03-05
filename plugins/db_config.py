@@ -64,7 +64,7 @@ async def viewthumb(client, message):
         await SnowDev.delete()
         await client.send_photo(chat_id=message.chat.id, photo=thumb, reply_to_message_id=message.id)
     else:
-        await SnowDev.edit("😔 __**Yᴏᴜ Dᴏɴ'ᴛ Hᴀᴠᴇ Aɴy Tʜᴜᴍʙɴᴀɪʟ**__")
+        await SnowDev.edit("😔 **ʏᴏᴜ ᴅᴏɴ'ᴛ ʜᴀᴠᴇ ᴀɴʏ ᴛʜᴜᴍʙɴᴀɪʟ ‣ sᴇɴᴅ ɴᴇᴡ ᴘʜᴏᴛᴏ ᴛᴏ sᴀᴠᴇ ᴀs ᴛʜᴜᴍʙɴᴀɪʟ**")
 
 
 @Client.on_message((filters.group | filters.private) & filters.command(['del_thumb', 'delthumb']))
@@ -76,7 +76,7 @@ async def removethumb(client, message):
 
     SnowDev = await message.reply_text(text="**Please Wait...**", reply_to_message_id=message.id)
     await db.set_thumbnail(message.from_user.id, thumbnail=None)
-    await SnowDev.edit("❌️ __**Tʜᴜᴍʙɴᴀɪʟ Dᴇʟᴇᴛᴇᴅ**__")
+    await SnowDev.edit("❌️ **ᴛʜᴜᴍʙɴᴀɪʟ ᴅᴇʟᴇᴛᴇᴅ**")
 
 
 @Client.on_message((filters.group | filters.private) & filters.photo)
@@ -87,7 +87,7 @@ async def addthumbs(client, message):
 
     SnowDev = await message.reply_text(text="**Please Wait...**", reply_to_message_id=message.id)
     await db.set_thumbnail(message.from_user.id, message.photo.file_id)
-    await SnowDev.edit("✅️ __**Tʜᴜᴍʙɴᴀɪʟ Sᴀᴠᴇᴅ**__")
+    await SnowDev.edit("✅️ **ᴛʜᴜᴍʙɴᴀɪʟ sᴀᴠᴇᴅ**")
     
 
 @Client.on_message((filters.group | filters.private) & filters.command(['set_ffmpeg', 'setffmpeg']))
@@ -104,7 +104,7 @@ async def set_ffmpeg(client, message):
         return
         
     await db.set_ffmpegcode(message.from_user.id, ffmpeg.text)
-    await message.reply_text("✅ __**Fғᴍᴘᴇɢ Cᴏᴅᴇ Sᴀᴠᴇᴅ**__", reply_to_message_id=message.id)
+    await message.reply_text("✅ **ғғᴍᴘᴇɢ ᴄᴏᴅᴇ sᴀᴠᴇᴅ**", reply_to_message_id=message.id)
 
 
 @Client.on_message((filters.group | filters.private) & filters.command(['see_ffmpeg', 'seeffmpeg']))
@@ -119,9 +119,9 @@ async def see_ffmpeg(client, message):
     ffmpeg = await db.get_ffmpegcode(message.from_user.id)
     
     if ffmpeg:
-        await SnowDev.edit(f"✅ <b>Yᴏᴜʀ Cᴜʀʀᴇɴᴛ Fғᴍᴘᴇɢ Cᴏᴅᴇ ɪs :-</b>\n\n<code>{ffmpeg}</code>")
+        await SnowDev.edit(f"✅ <b>ʏᴏᴜʀ ᴄᴜʀʀᴇɴᴛ ғғᴍᴘᴇɢ ᴄᴏᴅᴇ ɪs ‣ </b>\n\n<code>{ffmpeg}</code>")
     else:
-        await SnowDev.edit(f"😔 __**Yᴏᴜ Dᴏɴ'ᴛ Hᴀᴠᴇ Aɴy Fғᴍᴘᴇɢ Cᴏᴅᴇ**__")
+        await SnowDev.edit(f"😔 **ʏᴏᴜ ᴅᴏɴ'ᴛ ʜᴀᴠᴇ ᴀɴʏ ғғᴍᴘᴇɢ ᴄᴏᴅᴇ**")
 
 
 @Client.on_message((filters.group | filters.private) & filters.command(['del_ffmpeg', 'delffmpeg']))
@@ -133,7 +133,7 @@ async def del_ffmpeg(client, message):
 
     SnowDev = await message.reply_text(text="**Please Wait...**", reply_to_message_id=message.id)
     await db.set_ffmpegcode(message.from_user.id, None)
-    await SnowDev.edit("❌ __**Fғᴍᴘᴇɢ Cᴏᴅᴇ Dᴇʟᴇᴛᴇᴅ**__")
+    await SnowDev.edit("❌ **ғғᴍᴘᴇɢ ᴄᴏᴅᴇ ᴅᴇʟᴇᴛᴇᴅ**")
 
 
 @Client.on_message((filters.group | filters.private) & filters.command('set_metadata'))
@@ -151,7 +151,7 @@ async def set_metadata(client, message):
         return
     
     await db.set_metadata(message.from_user.id, metadata=metadata.text)
-    await message.reply_text("✅ __**Mᴇᴛᴀᴅᴀᴛᴀ Cᴏᴅᴇ Sᴀᴠᴇᴅ**__", reply_to_message_id=message.id)
+    await message.reply_text("✅ **ᴍᴇᴛᴀᴅᴀᴛᴀ ᴄᴏᴅᴇ sᴀᴠᴇᴅ**", reply_to_message_id=message.id)
     
     
 @Client.on_message((filters.group | filters.private) & filters.command('see_metadata'))
@@ -165,6 +165,6 @@ async def see_metadata(client, message):
     metadata = await db.get_metadata(message.from_user.id)
     
     if metadata:
-        await SnowDev.edit(f"✅ <b>Yᴏᴜʀ Cᴜʀʀᴇɴᴛ Mᴇᴛᴀᴅᴀᴛᴀ Cᴏᴅᴇ ɪs :-</b>\n\n<code>{metadata}</code>")
+        await SnowDev.edit(f"✅ <b>ʏᴏᴜʀ ᴄᴜʀʀᴇɴᴛ ᴍᴇᴛᴀᴅᴀᴛᴀ ᴄᴏᴅᴇ ɪs ‣ </b>\n\n<code>{metadata}</code>")
     else:
-        await SnowDev.edit(f"😔 __**Yᴏᴜ Dᴏɴ'ᴛ Hᴀᴠᴇ Aɴy Mᴇᴛᴀᴅᴀᴛᴀ Cᴏᴅᴇ**__")
+        await SnowDev.edit(f"😔 **ʏᴏᴜ ᴅᴏɴ'ᴛ ʜᴀᴠᴇ ᴀɴʏ ᴍᴇᴛᴀᴅᴀᴛᴀ ᴄᴏᴅᴇ**")
