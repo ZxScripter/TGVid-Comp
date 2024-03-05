@@ -17,23 +17,23 @@ async def Cb_Handle(bot: Client, query: CallbackQuery):
     if data == 'help':
 
         btn = [
-            [InlineKeyboardButton('⟸ Bᴀᴄᴋ', callback_data='home')]
+            [InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='home')]
         ]
 
         await query.message.edit(text=Txt.HELP_MSG, reply_markup=InlineKeyboardMarkup(btn), disable_web_page_preview=True)
 
     if data == 'home':
         btn = [
-            [InlineKeyboardButton(text='❗ Hᴇʟᴘ', callback_data='help'), InlineKeyboardButton(
-                text='🌨️ Aʙᴏᴜᴛ', callback_data='about')],
-            [InlineKeyboardButton(text='📢 Uᴘᴅᴀᴛᴇs', url='https://t.me/AIORFT'), InlineKeyboardButton
-                (text='💻 Dᴇᴠᴇʟᴏᴘᴇʀ', url='https://t.me/Snowball_Official')]
+            [InlineKeyboardButton(text='ʜᴇʟᴘ', callback_data='help'), InlineKeyboardButton(
+                text='ᴀʙᴏᴜᴛ', callback_data='about')],
+            [InlineKeyboardButton(text='ᴜᴘᴅᴀᴛᴇs', url='https://t.me/Ani_Bots_Updates'), InlineKeyboardButton
+                (text='ᴏᴡɴᴇʀ', url='https://t.me/Sensei_Rimuru')]
         ]
         await query.message.edit(text=Txt.PRIVATE_START_MSG.format(query.from_user.mention), reply_markup=InlineKeyboardMarkup(btn))
 
     elif data == 'about':
         BUTN = [
-            [InlineKeyboardButton(text='⟸ Bᴀᴄᴋ', callback_data='home')]
+            [InlineKeyboardButton(text='ʙᴀᴄᴋ', callback_data='home')]
         ]
         botuser = await bot.get_me()
         await query.message.edit(Txt.ABOUT_TXT.format(botuser.username), reply_markup=InlineKeyboardMarkup(BUTN), disable_web_page_preview=True)
@@ -62,9 +62,9 @@ async def Cb_Handle(bot: Client, query: CallbackQuery):
         file = getattr(query.message.reply_to_message,
                        query.message.reply_to_message.media.value)
 
-        text = f"""**__What do you want me to do with this file.?__**\n\n**File Name** :- `{file.file_name}`\n\n**File Size** :- `{humanize.naturalsize(file.file_size)}`"""
-        buttons = [[InlineKeyboardButton("Rᴇɴᴀᴍᴇ 📝", callback_data=f"rename-{query.from_user.id}")],
-                   [InlineKeyboardButton("Cᴏᴍᴘʀᴇss 🗜️", callback_data=f"compress-{query.from_user.id}")]]
+        text = f"""**ᴡʜᴀᴛ ᴅᴏ ʏᴏᴜ ᴡᴀɴᴛ ᴍᴇ ᴛᴏ ᴅᴏ ᴡɪᴛʜ ᴛʜɪs ғɪʟᴇ ?**\n\n**ғɪʟᴇ ɴᴀᴍᴇ ** :- `{file.file_name}`\n\n**ғɪʟᴇ sɪᴢᴇ** :- `{humanize.naturalsize(file.file_size)}`"""
+        buttons = [[InlineKeyboardButton("ʀᴇɴᴀᴍᴇ 📝", callback_data=f"rename-{query.from_user.id}")],
+                   [InlineKeyboardButton("ᴄᴏᴍᴘʀᴇss ⚡", callback_data=f"compress-{query.from_user.id}")]]
 
         await query.message.edit(text=text, reply_markup=InlineKeyboardMarkup(buttons))
 
@@ -74,9 +74,9 @@ async def Cb_Handle(bot: Client, query: CallbackQuery):
         except:
             return await query.message.reply_text("**Eʀʀᴏʀ!!**\n\nRᴇǫᴜᴇsᴛ ᴛɪᴍᴇᴅ ᴏᴜᴛ.\nSᴇᴛ ʙʏ ᴜsɪɴɢ /set_ffmpeg")
 
-        SnowDev = await query.message.reply_text(text="**Setting Your FFMPEG CODE**\n\nPlease Wait...")
+        SnowDev = await query.message.reply_text(text="**sᴇᴛᴛɪɴɢ ʏᴏᴜʀ ғғᴍᴘᴇɢ ᴄᴏᴅᴇ**...")
         await db.set_ffmpegcode(query.from_user.id, ffmpeg_code.text)
-        await SnowDev.edit("✅️ __**Fғᴍᴘᴇɢ Cᴏᴅᴇ Sᴇᴛ Sᴜᴄᴄᴇssғᴜʟʟʏ**__")
+        await SnowDev.edit("✅️ **ғғᴍᴘᴇɢ ᴄᴏᴅᴇ sᴇᴛ sᴜᴄᴄᴇssғᴜʟʟʏ**")
 
 
     elif data.startswith('compress'):
@@ -88,21 +88,21 @@ async def Cb_Handle(bot: Client, query: CallbackQuery):
         else:
 
             BTNS = [
-                [InlineKeyboardButton(text='480ᴘ', callback_data='480pc'), InlineKeyboardButton(
-                    text='720ᴘ', callback_data='720pc')],
-                [InlineKeyboardButton(text='1080ᴘ', callback_data='1080pc'), InlineKeyboardButton(
-                    text='4ᴋ', callback_data='2160pc')],
+                [InlineKeyboardButton(text='480p', callback_data='480pc'), InlineKeyboardButton(
+                    text='720p', callback_data='720pc')],
+                [InlineKeyboardButton(text='1080p', callback_data='1080pc'), InlineKeyboardButton(
+                    text='4K', callback_data='2160pc')],
                 [InlineKeyboardButton(
-                    text='Cᴜsᴛᴏᴍ Eɴᴄᴏᴅɪɴɢ 🗜️', callback_data='custompc')],
-                [InlineKeyboardButton(text='✘ Cʟᴏꜱᴇ', callback_data='close'), InlineKeyboardButton(
-                    text='⟸ Bᴀᴄᴋ', callback_data='option')]
+                    text='ᴄᴜsᴛᴏᴍ ᴇɴᴄᴏᴅɪɴɢ ⚡', callback_data='custompc')],
+                [InlineKeyboardButton(text='ᴄʟᴏsᴇ', callback_data='close'), InlineKeyboardButton(
+                    text='ʙᴀᴄᴋ', callback_data='option')]
             ]
-            await query.message.edit(text='**Select the Compression Method Below 👇 **', reply_markup=InlineKeyboardMarkup(BTNS))
+            await query.message.edit(text='**sᴇʟᴇᴄᴛ ᴛʜᴇ ᴄᴏᴍᴘʀᴇssɪᴏɴ ᴍᴇᴛʜᴏᴅ ʙᴇʟᴏᴡ 👇 **', reply_markup=InlineKeyboardMarkup(BTNS))
 
     elif data == '480pc':
         try:
             c_thumb = await db.get_thumbnail(query.from_user.id)
-            ffmpeg = "-preset veryfast -c:v libx264 -s 840x480 -x265-params 'bframes=8:psy-rd=1:ref=3:aq-mode=3:aq-strength=0.8:deblock=1,1' -pix_fmt yuv420p -crf 30 -c:a libopus -b:a 32k -c:s copy -map 0 -ac 2 -ab 32k -vbr 2 -level 3.1 -threads 5"
+            ffmpeg = "-preset veryfast -c:v libx264 -s 854x480 -x264-params 'bframes=8:psy-rd=1:ref=3:aq-mode=3:aq-strength=0.8:deblock=1,1' -pix_fmt yuv420p -crf 28 -c:a libopus -b:a 40k -c:s copy -map 0 -ac 2 -ab 32k -vbr 2 -level 3.1 -threads 5"
             await CompressVideo(bot=bot, query=query, ffmpegcode=ffmpeg, c_thumb=c_thumb)
 
         except Exception as e:
@@ -111,7 +111,7 @@ async def Cb_Handle(bot: Client, query: CallbackQuery):
     elif data == '720pc':
         try:
             c_thumb = await db.get_thumbnail(query.from_user.id)
-            ffmpeg = "-preset veryfast -c:v libx264 -s 1280x720 -x265-params 'bframes=8:psy-rd=1:ref=3:aq-mode=3:aq-strength=0.8:deblock=1,1' -pix_fmt yuv420p -crf 30 -c:a libopus -b:a 32k -c:s copy -map 0 -ac 2 -ab 32k -vbr 2 -level 3.1 -threads 5"
+            ffmpeg = "-preset veryfast -c:v libx264 -s 1280x720 -x264-params 'bframes=8:psy-rd=1:ref=3:aq-mode=3:aq-strength=0.8:deblock=1,1' -pix_fmt yuv420p -crf 26 -c:a libopus -b:a 32k -c:s copy -map 0 -ac 2 -ab 32k -vbr 2 -level 3.1 -threads 5"
             await CompressVideo(bot=bot, query=query, ffmpegcode=ffmpeg, c_thumb=c_thumb)
 
         except Exception as e:
@@ -121,7 +121,7 @@ async def Cb_Handle(bot: Client, query: CallbackQuery):
 
         try:
             c_thumb = await db.get_thumbnail(query.from_user.id)
-            ffmpeg = "-preset veryfast -c:v libx264 -s 1920x1080 -x265-params 'bframes=8:psy-rd=1:ref=3:aq-mode=3:aq-strength=0.8:deblock=1,1' -pix_fmt yuv420p -crf 30 -c:a libopus -b:a 32k -c:s copy -map 0 -ac 2 -ab 32k -vbr 2 -level 3.1 -threads 5"
+            ffmpeg = "-preset veryfast -c:v libx264 -s 1920x1080 -x264-params 'bframes=8:psy-rd=1:ref=3:aq-mode=3:aq-strength=0.8:deblock=1,1' -pix_fmt yuv420p -crf 24 -c:a libopus -b:a 32k -c:s copy -map 0 -ac 2 -ab 32k -vbr 2 -level 3.1 -threads 5"
             await CompressVideo(bot=bot, query=query, ffmpegcode=ffmpeg, c_thumb=c_thumb)
 
         except Exception as e:
@@ -131,7 +131,7 @@ async def Cb_Handle(bot: Client, query: CallbackQuery):
 
         try:
             c_thumb = await db.get_thumbnail(query.from_user.id)
-            ffmpeg = "-preset veryfast -c:v libx264 -s 3840x2160 -x265-params 'bframes=8:psy-rd=1:ref=3:aq-mode=3:aq-strength=0.8:deblock=1,1' -pix_fmt yuv420p -crf 30 -c:a libopus -b:a 32k -c:s copy -map 0 -ac 2 -ab 32k -vbr 2 -level 3.1 -threads 5"
+            ffmpeg = "-preset veryfast -c:v libx264 -s 3840x2160 -x264-params 'bframes=8:psy-rd=1:ref=3:aq-mode=3:aq-strength=0.8:deblock=1,1' -pix_fmt yuv420p -crf 21 -c:a libopus -b:a 32k -c:s copy -map 0 -ac 2 -ab 32k -vbr 2 -level 3.1 -threads 5"
             await CompressVideo(bot=bot, query=query, ffmpegcode=ffmpeg, c_thumb=c_thumb)
 
         except Exception as e:
@@ -149,11 +149,11 @@ async def Cb_Handle(bot: Client, query: CallbackQuery):
             else:
                 BUTT = [
                     [InlineKeyboardButton(
-                        text='Sᴇᴛ Fғᴍᴘᴇɢ Cᴏᴅᴇ', callback_data='setffmpeg')],
+                        text='sᴇᴛ ғғᴍᴘᴇɢ ᴄᴏᴅᴇ', callback_data='setffmpeg')],
                     [InlineKeyboardButton(
-                        text='⟸ Bᴀᴄᴋ', callback_data=f'compress-{query.from_user.id}')]
+                        text='ʙᴀᴄᴋ', callback_data=f'compress-{query.from_user.id}')]
                 ]
-                await query.message.edit(text="You Don't Have Any Custom FFMPEG Code. 🛃", reply_markup=InlineKeyboardMarkup(BUTT))
+                await query.message.edit(text="ʏᴏᴜ ᴅᴏɴ'ᴛ ʜᴀᴠᴇ ᴀɴʏ ғғᴍᴘᴇɢ ᴄᴏᴅᴇ.", reply_markup=InlineKeyboardMarkup(BUTT))
         except Exception as e:
             print(e)
 
