@@ -2,13 +2,17 @@ class Txt(object):
 
     PRIVATE_START_MSG = """
 ʜɪɪ {},
-
-**ɪ ᴀᴍ ᴀᴅᴠᴀɴᴄᴇ ʀᴇɴᴀᴍᴇʀ + ᴄᴏᴍᴘʀᴇssᴏʀ ʙᴏᴛ. ‼️ ᴇxᴘʟᴏʀᴇ ᴍʏ ᴄᴏᴍᴍᴀɴᴅs ʙʏ ᴄʟɪᴄᴋɪɴɢ ᴏɴ ᴛʜᴇ "⚡ ʜᴇʟᴘ ⚡" ʙᴜᴛᴛᴏɴ ᴛᴏ ᴜsᴇ ᴍᴇ ᴍᴏʀᴇ ᴘʀᴇᴄɪsᴇʟʏ**
+**────────────────────
+✨ ᴛʜɪs ʙᴏᴛ ɪs ᴄʀᴇᴀᴛᴇᴅ ʙʏ ɴᴏɪʀ
+────────────────────
+‼️ ᴇxᴘʟᴏʀᴇ ᴍʏ ᴄᴏᴍᴍᴀɴᴅs ʙʏ ᴄʟɪᴄᴋɪɴɢ ᴏɴ ᴛʜᴇ "⚡ ʜᴇʟᴘ ⚡" ʙᴜᴛᴛᴏɴ ᴛᴏ ᴜsᴇ ᴍᴇ ᴍᴏʀᴇ ᴘʀᴇᴄɪsᴇʟʏ**
 """
     GROUP_START_MSG = """
 Hɪ {},
 
-**ɪ ᴀᴍ ᴀᴅᴠᴀɴᴄᴇ ʀᴇɴᴀᴍᴇʀ + ᴄᴏᴍᴘʀᴇssᴏʀ ʙᴏᴛ**
+**────────────────────
+✨ ᴛʜɪs ʙᴏᴛ ɪs ᴄʀᴇᴀᴛᴇᴅ ʙʏ ɴᴏɪʀ
+────────────────────**
 
 **‼️ ᴇxᴘʟᴏʀᴇ ᴍʏ ᴄᴏᴍᴍᴀɴᴅs ʙʏ ᴄʟɪᴄᴋɪɴɢ ᴏɴ ᴛʜᴇ "⚡ ʜᴇʟᴘ ⚡" ʙᴜᴛᴛᴏɴ ᴛᴏ ᴜsᴇ ᴍᴇ ᴍᴏʀᴇ ᴘʀᴇᴄɪsᴇʟʏ**
 """
@@ -27,7 +31,7 @@ Hɪ {},
 
 ‣ ffmpeg -i input.mkv <code> -c:v libx264 -crf 24 </code> output.mkv
 
-<code> -c:v libx264 -crf 24 </code> **ᴛʜɪs ʏᴏᴜʀ ᴄᴜʀʀᴇɴᴛ ғғᴍᴘᴇɢ ᴄᴏᴅᴇ.**
+<code> -c:v libx264 -crf 24 </code> **ᴛʜɪs is ʏᴏᴜʀ ᴄᴜʀʀᴇɴᴛ ғғᴍᴘᴇɢ ᴄᴏᴅᴇ.**
 
 • **ғᴏʀ ʜᴇʟᴘ ᴄᴏɴᴛᴀᴄᴛ - @Sensei_Rimuru**
 """
@@ -44,20 +48,20 @@ Hɪ {},
 
     
     HELP_MSG = """
-‣ ᴀᴠᴀɪʟᴀʙʟᴇ ᴄᴏᴍᴍᴀɴᴅs -
+‣ **ᴀᴠᴀɪʟᴀʙʟᴇ ᴄᴏᴍᴍᴀɴᴅs -
 
-‣ /set_ffmpeg - To set custom ffmpeg code
-‣ /set_metadata - To set custom metadata code
-‣ /set_caption - To set custom caption
-‣ /del_ffmpeg - Delete the custom ffmpeg code
-‣ /del_caption - Delete caption
-‣ /see_ffmpeg - View custom ffmpeg code
-‣ /see_metadata - View custom metadata code
-‣ /see_caption - View caption 
-‣ To Set Thumbnail just send photo
+• /set_ffmpeg - ᴛᴏ sᴇᴛ ᴄᴜsᴛᴏᴍ ғғᴍᴘᴇɢ ᴄᴏᴅᴇ
+• /set_metadata - ᴛᴏ sᴇᴛ ᴄᴜsᴛᴏᴍ ᴍᴇᴛᴀᴅᴀᴛᴀ ᴄᴏᴅᴇ
+• /set_caption - ᴛᴏ sᴇᴛ ᴄᴜsᴛᴏᴍ ᴄᴀᴘᴛɪᴏɴ
+• /del_ffmpeg - ᴅᴇʟᴇᴛᴇ ᴛʜᴇ ᴄᴜsᴛᴏᴍ ғғᴍᴘᴇɢ ᴄᴏᴅᴇ
+• /del_caption - ᴅᴇʟᴇᴛᴇ ᴄᴀᴘᴛɪᴏɴ
+• /see_ffmpeg - ᴠɪᴇᴡ ᴄᴜsᴛᴏᴍ ғғᴍᴘᴇɢ ᴄᴏᴅᴇ
+• /see_metadata - ᴠɪᴇᴡ ᴄᴜsᴛᴏᴍ ᴍᴇᴛᴀᴅᴀᴛᴀ ᴄᴏᴅᴇ
+• /see_caption - ᴠɪᴇᴡ ᴄᴀᴘᴛɪᴏɴ 
+• ᴛᴏ sᴇᴛ ᴛʜᴜᴍʙɴᴀɪʟ ᴊᴜsᴛ sᴇɴᴅ ᴘʜᴏᴛᴏ**
 
 
-<b>ᴏᴡɴᴇʀ</b> <a href=https://t.me/Anime_Sensei_Network>Anime Sensei</a>
+<b>🥹 ᴏᴡɴᴇʀ</b> <a href=https://t.me/Anime_Sensei_Network>ᴀɴɪᴍᴇ sᴇɴsᴇɪ</a>
 """
 
     ABOUT_TXT = """<b>╭───────────⍟
